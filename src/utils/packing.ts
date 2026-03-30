@@ -45,7 +45,6 @@ function packBoxesOnPallet(
   boxCount: number,
   pallet: Pallet
 ): PlacedBox[] {
-  const placedBoxes: PlacedBox[] = [];
   const palletOrientations = [
     { length: boxLength, width: boxWidth, height: boxHeight, rotation: 0 },
     { length: boxWidth, width: boxLength, height: boxHeight, rotation: 90 },
@@ -122,7 +121,7 @@ export function optimizePacking(
   pallet: Pallet,
   shippingMode: 'pallet' | 'courier'
 ): PackingResult {
-  const { count: partsPerBox, orientation } = calculatePartsPerBox(part, container);
+  const { count: partsPerBox } = calculatePartsPerBox(part, container);
 
   if (partsPerBox === 0) {
     return {
